@@ -16,12 +16,12 @@ export const getAllVehiculos = async (req,res)=>{
 //Mostrar un registro 
 export const getVehiculos = async (res,req) => {
     try {
-      const vehiculo = vehiculoModel.findAll({
+      const vehiculo = await vehiculoModel.findAll({
             where:{
-                Placa_vehiculo:req.params.Placa_vehiculo
+                id:req.params.id
             }
         })
-        res.json(vehiculo)
+        res.json(vehiculo[0])
     } catch (error) {
         res.json({message:error.message})
     }
@@ -43,7 +43,7 @@ export const createVehiculo = async (req,res) => {
 export const updateVehiculo = async(req,res) =>{
     try {
        await vehiculoModel.update(req.body,{
-            where:{Placa_vehiculo:req.params.Placa_vehiculo}
+            where:{id:req.params.id}
         })
         res.json({
             "message":"registro actaualizado correctamente"
@@ -56,7 +56,7 @@ export const updateVehiculo = async(req,res) =>{
 export const deleteVehiculo = async (req,res) => {
     try {
         vehiculoModel.destroy({
-            where:{Placa_vehiculo:req.params.Placa_vehiculo}
+            where:{id:req.params.id}
         })
         res.json({
             "message":"registro eliminado correctamente"

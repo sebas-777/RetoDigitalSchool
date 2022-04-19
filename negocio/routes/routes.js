@@ -3,9 +3,9 @@ import { createVehiculo, deleteVehiculo, getAllVehiculos, getVehiculos, updateVe
 const router = express.Router()
 
 router.get('/',getAllVehiculos)
-router.get('/:Placa_vehiculo',getVehiculos)
+router.get('/:id',getVehiculos)
 router.post('/',createVehiculo)
-router.put('/ :Placa_vehiculo',updateVehiculo)
-router.delete('/:Placa_vehiculo',deleteVehiculo)
+router.put('/ :id',updateVehiculo)
+router.delete('/:id',deleteVehiculo)
 
 export default router
