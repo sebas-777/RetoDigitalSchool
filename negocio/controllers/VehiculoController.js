@@ -4,7 +4,7 @@ import vehiculoModel from "../models/VehiculoModel.js";
 // ** metodos para el crud **/
 
 //Mostrar todos los registros 
-export const getAllVehiculos = async (req,res)=>{
+export const getAllVehiculos = async (res)=>{
     try {
        const vehiculos = await vehiculoModel.findAll()
        res.json(vehiculos)
